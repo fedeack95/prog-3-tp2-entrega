@@ -198,7 +198,7 @@ public class Abb {
 		return this.getLongestBranchHelper(this.root);
 	}
 	
-	public List<Integer> getLongestBranchHelper(Node current) {
+	private List<Integer> getLongestBranchHelper(Node current) {
 		if (current.isLeaf()) {
 			List<Integer> output = new ArrayList<Integer>();
 			output.add(current.getValue());
