@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Abb {
@@ -38,7 +39,7 @@ public class Abb {
 			}
 
 			if (childRight != null) {
-				rightHeight = this.getHeightHelper(childLefth);
+				rightHeight = this.getHeightHelper(childRight);
 			}
 
 			int currentHeight = (Math.max(leftHeight, rightHeight) + 1);
@@ -195,7 +196,9 @@ public class Abb {
 		if (this.root == null) {
 			return new ArrayList<Integer>();
 		}
-		return this.getLongestBranchHelper(this.root);
+		List<Integer> output = this.getLongestBranchHelper(this.root);
+		Collections.reverse(output);
+		return output;
 	}
 	
 	private List<Integer> getLongestBranchHelper(Node current) {
@@ -328,7 +331,7 @@ public class Abb {
 				int cantChilds = current.cantChilds();
 				if (cantChilds == 1) {
 					if (current.getLeft() != null) {
-						current.getParent().setLeft(current.getLeft());
+						current.getParent().setRight(current.getLeft());
 						return true;
 					} else {
 						current.getParent().setRight(current.getRight());
@@ -336,6 +339,14 @@ public class Abb {
 					}
 				} else {
 					Node moreLess = current.getRight().getMoreLeft();
+					if(current.getParent() == null) {
+						moreLess.setLeft(current.getLeft());
+						moreLess.getParent().setLeft(null);
+						moreLess.setRight(current.getRight());
+						this.root = moreLess;
+						return true;
+						
+					}
 					if (current.getParent().getLeft().getValue() == current.getValue()) {
 						moreLess.setLeft(current.getLeft());
 						current.getParent().setLeft(moreLess);
@@ -350,10 +361,10 @@ public class Abb {
 		}
 
 		if (valueIsLess) {
-			if (current != null)
+			if (current != null && current.getLeft() != null)
 				isDelete = this.deleteHelper(current.getLeft(), value);
 		} else {
-			if (current != null)
+			if (current != null && current.getRight() != null)
 				isDelete = this.deleteHelper(current.getRight(), value);
 		}
 

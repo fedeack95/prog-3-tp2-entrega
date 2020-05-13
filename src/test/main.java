@@ -7,32 +7,45 @@ public class main {
 		
 		//add
 		abb.add(10);
-		abb.add(5);
-		abb.add(8);
-		abb.add(15);
-		abb.add(20);
+		abb.add(4);
+		abb.add(1);
 		abb.add(6);
+		abb.add(5);
 		abb.add(7);
-		abb.add(9);
 		abb.add(25);
-		abb.add(21);
+		abb.add(15);
+		abb.add(12);
+		abb.add(20);
+		abb.add(50);
+		abb.add(30);
+		abb.add(26);
+		abb.add(100);
 		
-		//print In order
+		abb.printPreOrder();
+		abb.delete(10);
+		abb.delete(26);
+		abb.delete(6);
+		abb.delete(50);
+		System.out.println();
+		abb.printPreOrder();
+/*		//print In order
 		abb.printInOrder();
 		
 		//print pre order
 		abb.printPreOrder();
 		
 		//print post order
-		abb.printPostOrder();
+		abb.printPostOrder();*/
 		
 		//has element
-		System.out.println(abb.hasElement(9));
-		System.out.println(abb.hasElement(89));
-		
+	/*	System.out.println(abb.hasElement(9));
+		System.out.println(abb.hasElement(89));*/
+		//abb.printInOrder();
 		//delete
-		abb.delete(9);
-		abb.delete(82);
+		/*abb.delete(19);
+		abb.delete(82);*/
+	/*	System.out.println();
+		abb.printInOrder();
 		
 		
 		//frontera
@@ -44,30 +57,16 @@ public class main {
 		//traer mayor
 		abb.getMaxElement();
 		
-		
 		//altura
-		abb.getHeight();
+		System.out.println();*/
+		//System.out.println(abb.getHeight());
+		//System.out.println(abb.getLongestBranch().toString());
 		
-		
-		//rama mas larga
-		abb.getLongestBranch();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//autogenerate
+	/*	//autogenerate
 		abb.autoGenerate(15, 1, 40);
 		System.out.println();
-		abb.printInOrder();
-		
-		
+		System.out.println(); */
+	//	abb.printInOrder();
 		
 		
 	}
